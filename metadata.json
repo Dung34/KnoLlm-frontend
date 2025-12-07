@@ -1,0 +1,5 @@
+{
+  "name": "KnoLlm",
+  "description": "A personal knowledge RAG system and second brain, inspired by NotebookLM.",
+  "requestFramePermissions": []
+}
