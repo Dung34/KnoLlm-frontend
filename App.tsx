@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import AuthScreen from './components/AuthScreen';
 import Dashboard from './components/Dashboard';
@@ -76,10 +78,10 @@ const App: React.FC = () => {
       isPinned: false,
       colorGradient: GRADIENTS[Math.floor(Math.random() * GRADIENTS.length)]
     };
-    
+
     setProjects([newProject, ...projects]);
     setIsCreateModalOpen(false);
-    
+
     // Auto open new project
     setActiveProjectId(newProject.id);
     setCurrentView(AppView.WORKSPACE);
@@ -111,7 +113,7 @@ const App: React.FC = () => {
       )}
 
       {currentView === AppView.DASHBOARD && (
-        <Dashboard 
+        <Dashboard
           user={MOCK_USER}
           projects={projects}
           onOpenCreateModal={() => setIsCreateModalOpen(true)}
@@ -122,13 +124,13 @@ const App: React.FC = () => {
       )}
 
       {currentView === AppView.WORKSPACE && activeProject && (
-        <Workspace 
+        <Workspace
           project={activeProject}
           onBack={handleBackToDashboard}
         />
       )}
 
-      <CreateNotebookModal 
+      <CreateNotebookModal
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
         onCreate={handleCreateProject}
